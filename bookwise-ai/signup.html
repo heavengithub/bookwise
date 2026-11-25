@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Create your account: Bookwise AI</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body class="auth-page">
+<div class="auth-top"><a class="brand" href="index.html"><img src="assets/logo-mark.svg" alt="" width="30" height="30"/><span>Bookwise</span><em>AI</em></a><a class="muted" href="index.html">Back to the website</a></div>
+<div class="auth">
+  <main class="form-sheet">
+    <h1>Create your account</h1>
+    <p class="sub">Already have one? <a href="login.html">Log in</a>, or <a href="login.html?demo=1">open the demo company</a>.</p>
+    <div class="alert" id="msg" role="alert"></div>
+    <form id="f" novalidate>
+      <label class="field"><span>Full name</span><input id="name" autocomplete="name" required /></label>
+      <label class="field"><span>Business name</span><input id="company" autocomplete="organization" placeholder="You can change this later" /></label>
+      <label class="field"><span>Email</span><input id="email" type="email" autocomplete="email" required /></label>
+      <label class="field"><span>Password</span><input id="pw" type="password" autocomplete="new-password" required />
+        <div class="pw-meter"><i id="meter"></i></div><small class="muted" id="pwhint">At least 8 characters, with a letter and a number</small></label>
+      <label class="field"><span>Plan</span><select id="plan"><option value="starter">Starter, free</option><option value="pro">Pro, 14-day trial then $29 a month</option><option value="business">Business, 14-day trial then $59 a month</option></select></label>
+      <label class="check-row"><input type="checkbox" id="agree" /> I agree to the <a href="terms.html" target="_blank">Terms</a> and <a href="privacy.html" target="_blank">Privacy Policy</a></label>
+      <button class="btn primary block" type="submit" id="go">Create account</button>
+    </form>
+  </main>
+  <aside class="auth-aside">
+    <h2>Three minutes of setup, then a tax plan for your numbers.</h2>
+    <p>After you sign up, a short setup asks about your business, your yearly numbers and your plans for the year. Then it shows your recommended structure and each strategy that applies.</p>
+    <div class="printout feed" data-tilt aria-hidden="true">
+      <div class="ph"><span>TAX REVIEW</span><span>TY2026</span></div>
+      <table>
+        <tr class="b"><td>Tax as filed today</td><td class="amt">58,670.00</td></tr>
+        <tr class="b"><td>Elect S-corp</td><td class="amt"><span class="hl">(7,353.00)</span></td></tr>
+        <tr class="b"><td>Solo 401(k)</td><td class="amt"><span class="hl">(9,949.00)</span></td></tr>
+        <tr><td>Bonus depreciation</td><td class="amt">(3,663.00)</td></tr>
+        <tr><td>Other strategies and credits</td><td class="amt">(21,859.00)</td></tr>
+        <tr class="net"><td>Tax with plan</td><td class="amt">15,846.00</td></tr>
+      </table><div class="pf"><span>Demo company</span><span>PAGE 1</span></div></div>
+  </aside>
+</div>
+<script src="js/tilt.js"></script>
+<script src="js/auth.js"></script>
+<script>
+  const el = id => document.getElementById(id);
+  const [nameEl, company, email, pw, plan, agree, meter, pwhint, remember] = ['name', 'company', 'email', 'pw', 'plan', 'agree', 'meter', 'pwhint', 'remember'].map(el);
+  const q = new URLSearchParams(location.search), msg = document.getElementById('msg');
+  if (q.get('plan')) document.getElementById('plan').value = q.get('plan');
+  const show = t => { msg.textContent = t; msg.className = 'alert show bad'; };
+  pw.addEventListener('input', () => {
+    const v = pw.value; let s = 0;
+    if (v.length >= 8) s++; if (/[A-Za-z]/.test(v) && /\d/.test(v)) s++; if (v.length >= 12) s++; if (/[^A-Za-z0-9]/.test(v)) s++;
+    meter.style.width = (s * 25) + '%'; meter.style.background = ['#c2412d', '#d9922b', '#8bbf3f', '#11785a', '#11785a'][s];
+    pwhint.textContent = ['Too short', 'Add a letter and a number', 'Good', 'Strong', 'Very strong'][s];
+  });
+  document.getElementById('f').addEventListener('submit', async e => {
+    e.preventDefault();
+    if (!agree.checked) return show('Please accept the Terms and Privacy Policy.');
+    const b = document.getElementById('go'); b.disabled = true; b.textContent = 'Creating account…';
+    try {
+      await Auth.signup({ name: nameEl.value, company: company.value, email: email.value, password: pw.value, plan: plan.value });
+      location.href = 'app.html#/onboarding';
+    } catch (err) { show(err.message); b.disabled = false; b.textContent = 'Create account'; }
+  });
+</script>
+</body>
+</html>

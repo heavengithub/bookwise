@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Log in: Bookwise AI</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body class="auth-page">
+<div class="auth-top"><a class="brand" href="index.html"><img src="assets/logo-mark.svg" alt="" width="30" height="30"/><span>Bookwise</span><em>AI</em></a><a class="muted" href="index.html">Back to the website</a></div>
+<div class="auth">
+  <main class="form-sheet">
+    <h1>Log in</h1>
+    <p class="sub">New here? <a href="signup.html">Create a free account</a></p>
+    <div class="demo-card"><b>Look around with the demo company.</b><br>Email <code>demo@bookwise.ai</code>, password <code>Demo1234!</code>
+      <button class="btn primary block" id="demo-btn" style="margin-top:12px">Log in to the demo</button></div>
+    <div class="divider">or use your account</div>
+    <div class="alert" id="msg" role="alert"></div>
+    <form id="f" novalidate>
+      <label class="field"><span>Email</span><input id="email" type="email" autocomplete="email" required /></label>
+      <label class="field"><span>Password</span><input id="pw" type="password" autocomplete="current-password" required /></label>
+      <label class="check-row"><input type="checkbox" id="remember" checked /> Keep me logged in on this device</label>
+      <button class="btn primary block" type="submit" id="go">Log in</button>
+    </form>
+    <p class="muted" style="font-size:14px;margin-top:18px">Forgot your password? Accounts in this version live in the browser you signed up on, so log in there or create a new account.</p>
+  </main>
+  <aside class="auth-aside">
+    <h2>Your books and your tax plan, in the same place.</h2>
+    <p>Record this week's transactions, follow up on an overdue invoice, or check what to set aside for the next estimated tax payment.</p>
+    <div class="printout feed" data-tilt aria-hidden="true">
+      <div class="ph"><span>TAX REVIEW</span><span>TY2026</span></div>
+      <table>
+        <tr class="b"><td>Tax as filed today</td><td class="amt">58,670.00</td></tr>
+        <tr class="b"><td>Elect S-corp</td><td class="amt"><span class="hl">(7,353.00)</span></td></tr>
+        <tr class="b"><td>Solo 401(k)</td><td class="amt"><span class="hl">(9,949.00)</span></td></tr>
+        <tr><td>Bonus depreciation</td><td class="amt">(3,663.00)</td></tr>
+        <tr><td>Other strategies and credits</td><td class="amt">(21,859.00)</td></tr>
+        <tr class="net"><td>Tax with plan</td><td class="amt">15,846.00</td></tr>
+      </table><div class="pf"><span>Demo company</span><span>PAGE 1</span></div></div>
+  </aside>
+</div>
+<script src="js/tilt.js"></script>
+<script src="js/auth.js"></script>
+<script>
+  const el = id => document.getElementById(id);
+  const [nameEl, company, email, pw, plan, agree, meter, pwhint, remember] = ['name', 'company', 'email', 'pw', 'plan', 'agree', 'meter', 'pwhint', 'remember'].map(el);
+  const q = new URLSearchParams(location.search), msg = document.getElementById('msg');
+  const show = (t, good) => { msg.textContent = t; msg.className = 'alert show ' + (good ? 'good' : 'bad'); };
+  const next = () => 'app.html' + (q.get('next') || '');
+  if (q.get('out')) show('You\'ve been logged out.', true);
+  Auth.ensureDemo().then(() => { if (Auth.current() && !q.get('out')) location.replace(next()); });
+  async function demo() {
+    try { document.getElementById('demo-btn').textContent = 'Opening demo…'; await Auth.loginDemo(); location.href = 'app.html#/dashboard'; }
+    catch (e) { show(e.message); }
+  }
+  document.getElementById('demo-btn').onclick = demo;
+  if (q.get('demo')) demo();
+  document.getElementById('f').addEventListener('submit', async e => {
+    e.preventDefault();
+    const b = document.getElementById('go'); b.disabled = true; b.textContent = 'Logging in…';
+    try { await Auth.login(email.value, pw.value, remember.checked); location.href = next(); }
+    catch (err) { show(err.message); b.disabled = false; b.textContent = 'Log in'; }
+  });
+</script>
+</body>
+</html>

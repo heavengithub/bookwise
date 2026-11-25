@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bookwise AI: small-business books with a tax engine built in</title>
+  <meta name="description" content="Bookkeeping, invoicing and cash-flow forecasts for small businesses, with a tax engine that compares LLC, S-corp and C-corp and checks 20+ deductions and credits under 2026 law." />
+  <meta property="og:title" content="Bookwise AI" />
+  <meta property="og:description" content="Small-business books with a tax engine built in." />
+  <meta property="og:image" content="assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#1c2b4a" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="preload" href="fonts/public-sans-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/logo-mark.svg" alt="" width="30" height="30"/><span>Bookwise</span><em>AI</em></a>
+    <nav class="nav-links" id="links">
+      <a href="#product">Product</a><a href="#ai">AI</a><a href="#engine">Tax engine</a><a href="#worksheet">S-corp worksheet</a><a href="#pricing">Pricing</a><a href="#questions">Questions</a>
+      <a href="login.html" class="mobile-only">Log in</a>
+    </nav>
+    <div class="right">
+      <a class="btn" href="login.html">Log in</a>
+      <a class="btn primary" href="signup.html">Create account</a>
+      <button class="burger" onclick="document.getElementById('links').classList.toggle('open')" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Small-business books with a tax engine built in.</h1>
+      <p class="lead">Keep your ledger, send invoices and forecast cash in one place. Bookwise reads those same numbers against 2026 tax law and shows which business structure, deductions and credits lower your bill, and by how much.</p>
+      <div class="cta">
+        <a class="btn primary lg" href="signup.html">Create a free account</a>
+        <a class="btn lg" href="login.html?demo=1">Open the demo company</a>
+      </div>
+      <p class="fine">Demo login: <code>demo@bookwise.ai</code> <code>Demo1234!</code></p>
+    </div>
+
+    <div class="hero-visual" id="hero-visual"><div class="printout feed" aria-label="Sample tax review printout">
+      <div class="ph"><span>BLUEBIRD CREATIVE CO.</span><span>TAX REVIEW TY2026</span></div>
+      <table>
+        <tr class="sec"><td>Books, year to date</td><td></td><td></td></tr>
+        <tr class="b"><td>Service revenue</td><td></td><td class="amt">470,700.00</td></tr>
+        <tr class="b"><td>Cost of goods sold</td><td></td><td class="amt">(46,506.00)</td></tr>
+        <tr class="b"><td>Operating expenses</td><td></td><td class="amt">(229,693.00)</td></tr>
+        <tr class="tot"><td>Net profit</td><td></td><td class="amt">194,501.00</td></tr>
+        <tr class="sec"><td>Tax as filed today (LLC)</td><td></td><td class="amt">58,670.00</td></tr>
+        <tr class="b"><td>Elect S-corp, salary 76,366</td><td><span class="note">§1362</span></td><td class="amt"><span class="hl">(7,353.00)</span></td></tr>
+        <tr class="b"><td>Solo 401(k), max out</td><td><span class="note">§401(k)</span></td><td class="amt"><span class="hl">(9,949.00)</span></td></tr>
+        <tr class="b"><td>Equipment, bonus depreciation</td><td><span class="note">§168(k)</span></td><td class="amt">(3,663.00)</td></tr>
+        <tr><td>Augusta rule, 10 days</td><td><span class="note">§280A(g)</span></td><td class="amt">(1,832.00)</td></tr>
+        <tr><td>Credits: WOTC, §45E, §45R</td><td></td><td class="amt">(5,481.00)</td></tr>
+        <tr><td>Other strategies (6)</td><td></td><td class="amt">(14,546.00)</td></tr>
+        <tr class="net"><td>Tax with plan</td><td></td><td class="amt">15,846.00</td></tr>
+      </table>
+      <div class="pf"><span>20 strategies checked, 14 apply</span><span>PAGE 1 OF 1</span></div>
+    </div></div>
+  </div>
+</section>
+
+<section id="product">
+  <div class="wrap two">
+    <div>
+      <h2 class="sec-title">Everything you need to keep books and file taxes.</h2>
+      <p class="sec-intro">Each part feeds the next. Transactions land in the ledger, the ledger builds your reports, and the reports feed the tax plan.</p>
+    </div>
+    <ul class="index">
+      <li><b>Banking</b><span class="lead-dots"></span><span class="d">Upload a bank CSV, review and categorise each line</span></li>
+      <li><b>Invoices</b><span class="lead-dots"></span><span class="d">Bill customers, record payments, see who is overdue</span></li>
+      <li><b>Expenses</b><span class="lead-dots"></span><span class="d">Split purchases across categories, track vendors</span></li>
+      <li><b>Reports</b><span class="lead-dots"></span><span class="d">Profit and loss, balance sheet, cash flow, A/R aging</span></li>
+      <li><b>Schedule C summary</b><span class="lead-dots"></span><span class="d">Every account mapped to its IRS line, 50% meals flagged</span></li>
+      <li><b>Forecast</b><span class="lead-dots"></span><span class="d">Three scenarios, planned hires, quarterly tax set-asides</span></li>
+      <li><b>Tax optimizer</b><span class="lead-dots"></span><span class="d">Entity comparison and 20+ strategies with the steps</span></li>
+    </ul>
+  </div>
+  <div class="wrap" style="margin-top:56px">
+    <figure><div class="shot"><img src="assets/shot-dashboard.jpg" alt="Bookwise home screen with profit and loss, expenses, invoices, cash flow and tax savings" loading="lazy" /></div>
+      <figcaption>The home screen for the demo company, a seven-person design agency.</figcaption></figure>
+  </div>
+</section>
+
+
+<section class="alt" id="ai">
+  <div class="wrap">
+    <h2 class="sec-title">AI that reads your ledger, not the internet.</h2>
+    <p class="sec-intro">Every AI feature works from your own books and tax plan. With a Claude API key connected it writes with Claude; without one, a built-in engine runs the same features in your browser.</p>
+    <div class="ai-grid">
+      <div class="chat-demo" id="chat-demo" aria-label="Example conversation from the demo company">
+        <div class="cd-head"><b>Ask your books</b><span>Example from the demo company</span></div>
+        <div class="cd-body" id="cd-body"></div>
+        <div class="cd-input"><span id="cd-q"></span><i class="caret"></i></div>
+      </div>
+      <ul class="ai-list">
+        <li><b>Ask your books</b><p>Type a question the way you would ask your bookkeeper. "What did Upwork cost us in Q3?" or "Can I afford a $20k truck?" The answer is calculated live from your ledger.</p></li>
+        <li><b>Morning briefing</b><p>Each day opens with three or four sentences on what changed: a cost that jumped, a customer who is late, the tax deadline that matters most.</p></li>
+        <li><b>Explain at your level</b><p>Every tax strategy can be explained in plain English with an everyday comparison, as a to-do list for an owner, or with the code sections your CPA wants.</p></li>
+        <li><b>Categories from your history</b><p>Imported bank lines are matched against how you categorised similar ones before, with a confidence score and the reason.</p></li>
+        <li><b>Margin notes on reports</b><p>Profit and loss and balance sheets come back with handwritten-style notes beside the lines that moved.</p></li>
+        <li><b>Forecasts in a sentence</b><p>"Hire a designer at $65k in March and buy equipment for $12k in June" becomes a new forecast, with the tax set-aside updated.</p></li>
+        <li><b>Reminder emails</b><p>Draft a payment reminder for any late invoice, then slide the tone from friendly to firm.</p></li>
+      </ul>
+    </div>
+    <figure style="margin-top:56px">
+      <div class="annot-sheet">
+        <div class="as-head"><span>Bluebird Creative Co.</span><b>Profit and Loss</b><span>Jan 1 to Nov 24, 2026</span></div>
+        <table>
+          <tr><td>Advertising &amp; Marketing</td><td class="amt">$20,811.00</td><td class="mn"><span>Up 31% vs. prior period</span></td></tr>
+          <tr><td>Meals (50% deductible)</td><td class="amt">$3,848.00</td><td class="mn"><span>Only $1,924 deductible</span></td></tr>
+          <tr><td>Rent / Lease</td><td class="amt">$35,200.00</td><td class="mn"></td></tr>
+          <tr><td>Wages (employees)</td><td class="amt">$115,500.00</td><td class="mn"><span>Largest expense, 25% of revenue</span></td></tr>
+          <tr class="net"><td>Net income</td><td class="amt">$194,501.00</td><td class="mn"><span>41% margin, was 36%</span></td></tr>
+        </table>
+      </div>
+      <figcaption>Margin notes on a demo report. Notes point at what changed so you know where to look first.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="engine">
+  <div class="wrap two">
+    <div>
+      <h2 class="sec-title">It re-runs your whole return for every option.</h2>
+      <p class="sec-intro">A flat-rate estimate misses how the pieces interact. Bookwise recalculates self-employment and payroll tax, the 20% QBI deduction and its phase-ins, each federal bracket, dividend tax and state tax, then reports the difference.</p>
+      <ul class="ticks">
+        <li>Tests every owner salary to find the cheapest S-corp payroll</li>
+        <li>Shows the code section, the math and the filing steps for each strategy</li>
+        <li>Separates permanent savings from timing benefits and one-time credits</li>
+        <li>Uses 2026 IRS limits, including the One Big Beautiful Bill Act changes</li>
+      </ul>
+    </div>
+    <table class="ledger">
+      <thead><tr><th>Code section</th><th>What the engine checks</th></tr></thead>
+      <tbody>
+        <tr><td>§1361–1362</td><td>S-corp election and reasonable salary</td></tr>
+        <tr><td>§11</td><td>C-corp with retained earnings</td></tr>
+        <tr><td>§199A</td><td>Qualified business income deduction</td></tr>
+        <tr><td>§401(k), §415</td><td>Solo 401(k) and SEP contributions</td></tr>
+        <tr><td>§412</td><td>Cash-balance pension plan</td></tr>
+        <tr><td>§223</td><td>Health savings account</td></tr>
+        <tr><td>§179, §168(k)</td><td>Equipment expensing and bonus depreciation</td></tr>
+        <tr><td>§280F</td><td>Trucks and SUVs over 6,000 lb</td></tr>
+        <tr><td>§280A</td><td>Home office and the Augusta rule</td></tr>
+        <tr><td>§3121(b)</td><td>Paying your children</td></tr>
+        <tr><td>Notice 2020-75</td><td>State pass-through entity tax</td></tr>
+        <tr><td>§41, §174A</td><td>Research credit and R&amp;D expensing</td></tr>
+        <tr><td>§51, §45R, §45E, §45F</td><td>Hiring, health, retirement and childcare credits</td></tr>
+        <tr><td>§1202</td><td>Qualified small business stock at sale</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="alt" id="worksheet">
+  <div class="wrap">
+    <h2 class="sec-title">Worksheet: should you elect S-corp status?</h2>
+    <p class="sec-intro">Move the profit slider. This runs the same calculation as the app, with no other income or strategies.</p>
+    <div class="worksheet" style="margin-top:30px">
+      <div class="wh"><h3>S-corp election worksheet</h3><span>2026 federal rules plus your state rate</span></div>
+      <div class="wl"><div class="n">1</div><div class="q">Expected business profit for the year<small id="e-val">$120,000</small></div><div class="a"><input type="range" id="e-profit" min="30000" max="600000" step="5000" value="120000" aria-label="Business profit" /></div></div>
+      <div class="wl"><div class="n">2</div><div class="q">Filing status</div><div class="a"><select id="e-status"><option value="single">Single</option><option value="mfj" selected>Married filing jointly</option></select></div></div>
+      <div class="wl"><div class="n">3</div><div class="q">State income tax</div><div class="a"><select id="e-state"></select></div></div>
+      <div class="wl"><div class="n">4</div><div class="q">Tax caused by the business as an LLC<small>Self-employment tax, income tax and state tax</small></div><div class="a" id="e-llc">$0</div></div>
+      <div class="wl"><div class="n">5</div><div class="q">Tax as an S corporation<small id="e-sal">With the lowest-cost reasonable salary</small></div><div class="a" id="e-s">$0</div></div>
+      <div class="wl total"><div class="n">6</div><div class="q"><b>Line 4 minus line 5: yearly savings</b><small id="e-note"></small></div><div class="a"><span class="hl" id="e-save">$0</span></div></div>
+      <div class="wf"><span>Assumes salary of at least 40% of profit and $1,800 a year in payroll costs.</span><a class="btn primary" href="signup.html">Get the full plan for your business</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <h2 class="sec-title">Pricing</h2>
+    <p class="sec-intro">Start free. Upgrade when you want the full tax engine.</p>
+    <div class="toggle"><button class="on" data-bill="m">Monthly</button><button data-bill="y">Yearly, save 20%</button></div>
+    <div style="overflow-x:auto">
+    <table class="prices">
+      <thead><tr><th></th>
+        <th><div class="pname">Starter</div><div class="pdesc">New and side businesses</div><div class="price">$0<small> a month</small></div></th>
+        <th class="pop"><div class="pname">Pro</div><div class="pdesc">Profitable owner-operators</div><div class="price" data-m="29" data-y="23">$29<small> a month</small></div></th>
+        <th><div class="pname">Business</div><div class="pdesc">Teams and partnerships</div><div class="price" data-m="59" data-y="47">$59<small> a month</small></div></th></tr></thead>
+      <tbody>
+        <tr><td>Bookkeeping and bank CSV import</td><td class="c">✓</td><td class="c pop">✓</td><td class="c">✓</td></tr>
+        <tr><td>Unlimited invoices and customers</td><td class="c">✓</td><td class="c pop">✓</td><td class="c">✓</td></tr>
+        <tr><td>Profit and loss, balance sheet, cash flow</td><td class="c">✓</td><td class="c pop">✓</td><td class="c">✓</td></tr>
+        <tr><td>LLC vs. S-corp comparison</td><td class="c">✓</td><td class="c pop">✓</td><td class="c">✓</td></tr>
+        <tr><td>Full tax optimizer with 20+ strategies</td><td class="c no">—</td><td class="c pop">✓</td><td class="c">✓</td></tr>
+        <tr><td>Forecast and quarterly tax planner</td><td class="c no">—</td><td class="c pop">✓</td><td class="c">✓</td></tr>
+        <tr><td>Schedule C summary for your CPA</td><td class="c no">—</td><td class="c pop">✓</td><td class="c">✓</td></tr>
+        <tr><td>Multi-owner modeling</td><td class="c no">—</td><td class="c no pop">—</td><td class="c">✓</td></tr>
+        <tr><td>Business credits and QSBS exit planning</td><td class="c no">—</td><td class="c no pop">—</td><td class="c">✓</td></tr>
+      </tbody>
+      <tfoot><tr><td></td><td><a class="btn block" href="signup.html?plan=starter">Start free</a></td><td class="pop"><a class="btn primary block" href="signup.html?plan=pro">Try Pro for 14 days</a></td><td><a class="btn block" href="signup.html?plan=business">Try Business for 14 days</a></td></tr></tfoot>
+    </table>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="questions">
+  <div class="wrap">
+    <h2 class="sec-title">Questions</h2>
+    <div class="qa">
+      <div><h3>Is this tax advice?</h3><p>No. Bookwise gives educational estimates from 2026 federal rules and a flat state rate. Use it to find what to ask about, then confirm eligibility and filing with a CPA or enrolled agent.</p></div>
+      <div><h3>Which tax year does it use?</h3><p>2026: IRS Rev. Proc. 2025-32 and Notice 2025-67, plus the One Big Beautiful Bill Act changes to QBI, bonus depreciation, §179, the SALT cap and the childcare credit. Mileage reflects the July 1 rise to 76 cents.</p></div>
+      <div><h3>How is the S-corp salary picked?</h3><p>You set a minimum reasonable salary, or we estimate one for your industry. The engine tests every salary from that floor up to your full profit and keeps the one with the lowest total tax.</p></div>
+      <div><h3>Where is my data stored?</h3><p>In this version, your account and books stay in your own browser and are not sent to our servers. Settings has a backup download for moving between devices.</p></div>
+      <div><h3>Can my accountant see it?</h3><p>Print or save any report and the tax plan as a PDF, and export transactions as CSV with Schedule C line numbers.</p></div>
+      <div><h3>Can I cancel?</h3><p>Starter is free for good. Paid plans can be changed or cancelled from your account page at any time.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact">
+    <div>
+      <h2 class="sec-title">Talk to us</h2>
+      <p class="sec-intro">Questions about the product, a partnership, or using Bookwise with your clients? We reply within one business day.</p>
+      <p style="margin-top:26px"><a class="btn primary lg" href="signup.html">Create a free account</a></p>
+    </div>
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contact-form">
+      <input type="hidden" name="form-name" value="contact" />
+      <p style="display:none"><label>Leave this empty <input name="bot-field" /></label></p>
+      <label class="field"><span>Name</span><input name="name" required autocomplete="name" /></label>
+      <label class="field"><span>Email</span><input name="email" type="email" required autocomplete="email" /></label>
+      <label class="field"><span>Message</span><textarea name="message" rows="4" required></textarea></label>
+      <button class="btn primary" type="submit">Send message</button>
+      <p id="contact-msg" style="font-size:15px;font-weight:600;margin-top:12px"></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div><a class="brand" href="index.html"><img src="assets/logo-mark.svg" alt="" width="30" height="30"/><span>Bookwise</span><em>AI</em></a><p style="max-width:300px;margin-top:12px">Bookkeeping and tax planning for U.S. small businesses.</p></div>
+      <div><h4>Product</h4><a href="#product">Features</a><a href="#ai">AI</a><a href="#engine">Tax engine</a><a href="#pricing">Pricing</a><a href="login.html?demo=1">Demo company</a></div>
+      <div><h4>Account</h4><a href="signup.html">Create account</a><a href="login.html">Log in</a><a href="app.html#/library">Tax law library</a></div>
+      <div><h4>Company</h4><a href="#contact">Contact</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+    </div>
+    <div class="legal"><span>© <span id="yr"></span> Bookwise AI</span><span>Estimates for planning, not tax, legal or accounting advice.</span></div>
+  </div>
+</footer>
+
+<script src="js/tax-data.js"></script>
+<script src="js/store.js"></script>
+<script src="js/tax-engine.js"></script>
+<script src="js/site.js"></script>
+<script type="module" src="js/three-scenes.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bookwise AI</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" /><circle cx='16' cy='16' r='16' fill='%231b8a3e'/><text x='16' y='22' font-size='17' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>T</text></svg>" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <button class="tb-burger" id="burger" aria-label="Toggle menu"></button>
+    <a class="tb-logo" href="#/dashboard"><img src="assets/logo-mark.svg" alt="" width="28" height="28"/><span>Bookwise</span><em>AI</em></a>
+    <div class="tb-co" id="tb-co"></div>
+    <div class="tb-search" id="tb-search">
+      <input id="search" placeholder="Search transactions, invoices, customers, pages…" autocomplete="off" />
+      <kbd>/</kbd>
+      <div class="search-pop" id="search-pop"></div>
+    </div>
+    <div class="tb-right">
+      <button class="ask-btn" id="ask-btn" title="Ask your books"></button>
+      <button class="new-btn" id="new-btn"></button>
+      <a class="icon-btn" href="#/library" title="Tax law library" id="help-btn"></a>
+      <button class="icon-btn" id="bell" title="Notifications"></button>
+      <a class="icon-btn" href="#/settings" title="Settings" id="gear-btn"></a>
+      <div class="user-menu" id="user-menu"></div>
+    </div>
+    <div class="pop new-menu" id="new-menu"></div>
+    <div class="pop" id="notif-pop" style="top:52px;right:70px;width:340px"></div>
+  </header>
+  <nav class="leftnav" id="leftnav"></nav>
+  <div class="main" id="main">
+    <div class="page-head" id="page-head"></div>
+    <main class="content" id="view"></main>
+  </div>
+
+  <div class="scrim" id="scrim"></div>
+  <aside class="drawer" id="drawer"></aside>
+  <div class="full" id="full"></div>
+  <div class="modal-bg" id="modal-bg"><div class="modal" id="modal"></div></div>
+  <div class="toast" id="toast"></div>
+
+  <script src="js/auth.js"></script>
+  <script>window.__user = Auth.require();</script>
+  <script src="js/vendor/chart.umd.js"></script>
+  <script src="js/tax-data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/tax-engine.js"></script>
+  <script src="js/strategies.js"></script>
+  <script src="js/ledger.js"></script>
+  <script src="js/projection.js"></script>
+  <script src="js/ai.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/ui-dashboard.js"></script>
+  <script src="js/ui-tax.js"></script>
+  <script src="js/ui-banking.js"></script>
+  <script src="js/ui-sales.js"></script>
+  <script src="js/ui-expenses.js"></script>
+  <script src="js/ui-reports.js"></script>
+  <script src="js/ui-projections.js"></script>
+  <script src="js/ui-misc.js"></script>
+  <script src="js/ui-onboarding.js"></script>
+  <script>App.start();</script>
+  <script type="module" src="js/three-scenes.js"></script>
+</body>
+</html>

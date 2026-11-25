@@ -1,0 +1,31 @@
+# Bookwise — static site, no build step
+[build]
+  publish = "."
+  command = ""
+  functions = "netlify/functions"
+
+# Pretty URLs: /login, /signup, /app
+[[redirects]]
+  from = "/login"
+  to = "/login.html"
+  status = 200
+[[redirects]]
+  from = "/signup"
+  to = "/signup.html"
+  status = 200
+[[redirects]]
+  from = "/app"
+  to = "/app.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+[[headers]]
+  for = "/app.html"
+  [headers.values]
+    X-Robots-Tag = "noindex"
